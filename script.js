@@ -16,3 +16,17 @@
 // rounds tallied ->
 // winner declared and loop closed 
 
+
+function playGame(){
+
+
+};
+
+function getComputerChoice(){
+    let computerChoice;
+    computerChoice = Math.floor(Math.random()*100);
+    return computerChoice
+
+}
+
+console.log(getComputerChoice())
