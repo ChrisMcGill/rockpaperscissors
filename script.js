@@ -1,6 +1,6 @@
 // play game button
 // button runs function of game
-// take input of player
+// take input of player as lowercase string
 // return this as number? for comparison
 // create function getComputerChoice
 // math.random*100 use values to generate choice rps
@@ -18,15 +18,37 @@
 
 
 function playGame(){
-
-
+    //playerchoice func
+    //getcompchoice func
+    //comparison func
+    // round tally func
+    // winner declared func
 };
+
+function getPlayerChoice(){
+    let playerChoice;
+    playerChoice = document.getElementById("textChoice").textContent;
+    return playerChoice;
+};
+
+console.log(getPlayerChoice());
 
 function getComputerChoice(){
     let computerChoice;
     computerChoice = Math.floor(Math.random()*100);
-    return computerChoice
+    if (computerChoice>33 && computerChoice<67){
+        return "rock"
+    } else if (computerChoice<33){
+        return "paper"
+    } else {
+        return "scissors"
+    };
+};
 
-}
+function compareChoice(){
+    if (getComputerChoice === getPlayerChoice){
+        //its a tie
+    }
+};
 
-console.log(getComputerChoice())
+console.log(getComputerChoice());
