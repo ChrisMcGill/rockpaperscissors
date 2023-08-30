@@ -25,13 +25,23 @@ function playGame(){
     // winner declared func
 };
 
-function getPlayerChoice(){
-    let playerChoice;
-    playerChoice = document.getElementById("textChoice").textContent;
-    return playerChoice;
+let getPlayerChoice = prompt("rock / paper / scissors?");
+
+// catch case aask to retype
+let playerChoice;
+
+if (getPlayerChoice.toLowerCase() === "rock"){
+    playerChoice = "rock"
+} else if (getPlayerChoice.toLowerCase() === "paper"){
+    playerChoice = "paper"
+} else if (getPlayerChoice.toLowerCase() === "scissors"){
+    playerChoice = "scissors"
+} else {
+    alert("Please select rock, paper or scissors")
 };
 
-console.log(getPlayerChoice());
+
+console.log(playerChoice);
 
 function getComputerChoice(){
     let computerChoice;
