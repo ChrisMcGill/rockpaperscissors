@@ -1,0 +1,12 @@
+
+#buttonChoices{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15%;
+    margin-top: 5%;
+}
+
+#displayScores{
+    display: flex;
+    justify-content: space-around;
+}
