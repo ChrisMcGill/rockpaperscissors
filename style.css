@@ -11,20 +11,43 @@ body{
     background-color: #d9edf8;
 }
 
-#buttonChoices{
+.choiceDisplay{
     display: flex;
     justify-content: space-around;
-    margin-bottom: 15%;
     margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+.compDisplay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonChoices{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonChoices>button{
+    background: none;
+    height: 40%;
+    width: 40%;
+}
+
+.buttonChoices>button>svg{
+    color: #fdffb6;
 }
 
 #displayScores{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 #declareWinner{
     display: flex;
     justify-content: space-around;
-    margin-top: 15%;
+    margin-top: 5%;
 };
