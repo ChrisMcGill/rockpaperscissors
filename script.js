@@ -70,6 +70,7 @@ function playGame(){
     tieIsScore();
     finale();
     declareWinner.textContent = (`${gameResult}`)
+    changeBackground();
     //could finish game here with function - game still runs on click
 };
 
@@ -107,3 +108,13 @@ tieScore.textContent = ("")
 
 const declareWinner = document.querySelector('#declareWinner')
 declareWinner.textContent = ("First to 5 wins")
+
+function changeBackground(){
+    if (pScore === 5){
+        document.body.style.backgroundColor = ('#77dd77');
+    } else if (cScore === 5){
+        document.body.style.backgroundColor = ('#ffadad');
+    } else {
+        return;
+    }
+};
