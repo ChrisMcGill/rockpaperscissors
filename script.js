@@ -1,8 +1,8 @@
 //rock paper scissors best of 5
-let playerChoice;
-let computerChoice;
-let resultsAnnounce;
-let gameResult;
+let playerChoice = '';
+let computerChoice = '';
+let resultsAnnounce = '';
+let gameResult = '';
 let pScore = 0;
 let cScore = 0;
 
@@ -18,6 +18,20 @@ function getComputerChoice(){
         return computerChoice = "scissors";
     };
 };
+
+//player choice and initiates game
+buttonR.addEventListener('click', () => {
+    playerChoice = "rock";
+    playGame();
+});
+buttonP.addEventListener('click', () => {
+    playerChoice = "paper";
+    playGame();
+});
+buttonS.addEventListener('click', () => {
+    playerChoice = "scissors";
+    playGame();
+});
 
 //compare input vs computer choice
 function compareChoice(){
@@ -46,7 +60,7 @@ function finale(){
     } else if (cScore ===5){
         return gameResult = "D E F E A T !";
     } else{
-        return gameResult = "First to 5 wins";
+        return gameResult = "Rock Paper Scissors: First to 5 wins";
     };
 };
 
@@ -61,6 +75,10 @@ function tieIsScore(){
 
 //function to run whole game
 function playGame(){
+    if ((pScore === 5) || (cScore === 5)){
+        // add append button function to play again
+        return;
+    };
     getComputerChoice();
     compareChoice();
     resultsCompare();
@@ -71,30 +89,7 @@ function playGame(){
     finale();
     declareWinner.textContent = (`${gameResult}`)
     changeBackground();
-    //could finish game here with function - game still runs on click
 };
-
-// buttons for setting choice and runnning function
-buttonR.addEventListener('mousedown', () => {
-    return playerChoice = "rock";
-});
-buttonP.addEventListener('mousedown', () => {
-    return playerChoice = "paper";
-});
-buttonS.addEventListener('mousedown', () => {
-    return playerChoice = "scissors";
-});
-
-//run function as won't work after return
-buttonR.addEventListener('mouseup', () => {
-    playGame();
-});
-buttonP.addEventListener('mouseup', () => {
-    playGame();
-});
-buttonS.addEventListener('mouseup', () => {
-    playGame();
-});
 
 //setting div display start values
 const humanScore = document.querySelector('#humanScore');
@@ -107,7 +102,7 @@ const tieScore = document.querySelector('#tieScore');
 tieScore.textContent = ("")
 
 const declareWinner = document.querySelector('#declareWinner')
-declareWinner.textContent = ("First to 5 wins")
+declareWinner.textContent = ("Rock Paper Scissors: First to 5 wins")
 
 function changeBackground(){
     if (pScore === 5){
