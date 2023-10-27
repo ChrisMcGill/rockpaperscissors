@@ -6,16 +6,34 @@ let gameResult = '';
 let pScore = 0;
 let cScore = 0;
 
-// gets computer choice randomly
+// gets computer choice randomly, highlight choice to user
+const cRock = document.querySelector('#cRock');
+const cPaper = document.querySelector('#cPaper');
+const cScissors = document.querySelector('#cScissors');
 function getComputerChoice(){
     let jumble;
     jumble = Math.floor(Math.random()*100);
+    cRock.style.opacity = ('0.5');
+    cRock.style.color = ('#000000');
+    cPaper.style.opacity = ('0.5');
+    cPaper.style.color = ('#000000');
+    cScissors.style.opacity = ('0.5');
+    cScissors.style.color = ('#000000');
     if (jumble>=33 && jumble<67){
-        return computerChoice = "rock";
+        cRock.style.opacity = ('1');
+        cRock.style.color = ('#fdffb6');
+        cRock.style.transform = ('scale(1.2)');
+        computerChoice = "rock";
     } else if (jumble<33){
-        return computerChoice = "paper";
+        cPaper.style.opacity = ('1');
+        cPaper.style.color = ('#fdffb6');
+        cPaper.style.transform = ('scale(1.2)');
+        computerChoice = "paper";
     } else {
-        return computerChoice = "scissors";
+        cScissors.style.opacity = ('1');
+        cScissors.style.color = ('#fdffb6');
+        cScissors.style.transform = ('scale(1.2)');
+        computerChoice = "scissors";
     };
 };
 
@@ -76,7 +94,7 @@ function tieIsScore(){
 //function to run whole game
 function playGame(){
     if ((pScore === 5) || (cScore === 5)){
-        // add append button function to play again
+        declareWinner.button.style.backgroundColor = ('#000000');
         return;
     };
     getComputerChoice();
