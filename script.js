@@ -6,6 +6,21 @@ let gameResult = '';
 let pScore = 0;
 let cScore = 0;
 
+//setting div display start values
+const humanScore = document.querySelector('#humanScore');
+humanScore.textContent = (`Human: ${pScore}`);
+
+const compScore = document.querySelector('#compScore');
+compScore.textContent = (`Computer: ${cScore}`);
+
+const tieScore = document.querySelector('#tieScore');
+tieScore.textContent = ("")
+
+const declareWinner = document.querySelector('#declareWinner')
+declareWinner.textContent = ("Rock Paper Scissors: First to 5 wins")
+
+const resetStyle = document.querySelector('.resetStyle');
+
 // gets computer choice randomly, highlight choice to user
 const cRock = document.querySelector('#cRock');
 const cPaper = document.querySelector('#cPaper');
@@ -71,6 +86,15 @@ function resultsCompare(){
         };
 };
 
+// handles and announces ties
+function tieIsScore(){
+    if (resultsAnnounce === "It's a TIE!"){
+        tieScore.textContent = (`${resultsAnnounce}`);
+    } else{
+        tieScore.textContent = ('');
+    };
+};
+
 //finish game with final print declaring winner
 function finale(){
     if (pScore === 5){
@@ -82,46 +106,6 @@ function finale(){
     };
 };
 
-// handles and announces ties
-function tieIsScore(){
-    if (resultsAnnounce === "It's a TIE!"){
-        tieScore.textContent = (`${resultsAnnounce}`);
-    } else{
-        tieScore.textContent = ('');
-    };
-};
-
-//function to run whole game
-function playGame(){
-    if ((pScore === 5) || (cScore === 5)){
-        declareWinner.button.style.backgroundColor = ('#000000');
-        return;
-    };
-    getComputerChoice();
-    compareChoice();
-    resultsCompare();
-    //need to breaklines so display underneath, maybe flex affecting?
-    humanScore.textContent = ((`Human: ${pScore}`) + '\n' + (`${playerChoice}`));
-    compScore.textContent = (`Computer: ${cScore}`) + "\n" + (`${computerChoice}`);
-    tieIsScore();
-    finale();
-    declareWinner.textContent = (`${gameResult}`)
-    changeBackground();
-};
-
-//setting div display start values
-const humanScore = document.querySelector('#humanScore');
-humanScore.textContent = (`Human: ${pScore}`);
-
-const compScore = document.querySelector('#compScore');
-compScore.textContent = (`Computer: ${cScore}`);
-
-const tieScore = document.querySelector('#tieScore');
-tieScore.textContent = ("")
-
-const declareWinner = document.querySelector('#declareWinner')
-declareWinner.textContent = ("Rock Paper Scissors: First to 5 wins")
-
 function changeBackground(){
     if (pScore === 5){
         document.body.style.backgroundColor = ('#77dd77');
@@ -131,3 +115,30 @@ function changeBackground(){
         return;
     }
 };
+
+function resetBtn(){
+    if ((gameResult === "V I C T O R Y !") || (gameResult === "D E F E A T !")){
+    resetStyle.style.backgroundColor = ('#fdffb6');
+    resetStyle.style.fontSize = ('large');
+    } else { 
+        return;
+    };
+};
+
+//function to run the game
+function playGame(){
+    if ((pScore === 5) || (cScore === 5)){
+        return;
+    };
+    getComputerChoice();
+    compareChoice();
+    resultsCompare();
+    humanScore.textContent = ((`Human: ${pScore} ${playerChoice}`));
+    compScore.textContent = (`Computer: ${cScore} ${computerChoice}`);
+    tieIsScore();
+    finale();
+    declareWinner.textContent = (`${gameResult}`)
+    changeBackground();
+    resetBtn();
+};
+
